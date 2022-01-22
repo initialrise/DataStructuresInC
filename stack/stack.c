@@ -41,13 +41,17 @@ void push(struct stack *s,int x){
 	}
 }
 
+void pop(struct stack *s){
+	s->top--;
+}
+
 int main(){
 	printf("Stack Implementation in C\n");
 	struct stack mystack = CreateEmptyStack();
 	push(&mystack,100);
 	push(&mystack,10);
 	push(&mystack,13);
-	push(&mystack,43);
+	pop(&mystack);
 	Display(mystack);
 	return 0;
 }
