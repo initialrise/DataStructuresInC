@@ -1,13 +1,14 @@
 #include <stdio.h>
-#define MAXITEM 3
+#include <stdlib.h>
+#define MAXSIZE 3
 
 struct stack{
-	int dataitems[MAXITEM];
+	int *dataitems; 
 	int top;
 };
 
 int isFull(struct stack *s){
-	if(s->top==MAXITEM-1)
+	if(s->top==MAXSIZE-1)
 		return 1;
 	else
 		return 0;
@@ -29,6 +30,7 @@ void Display(struct stack s)
 struct stack CreateEmptyStack(){
 	struct stack s;
 	s.top=-1;
+	s->dataitems = (int *)malloc(MAXSIZE*sizeof(int));
 	return s;
 }
 
