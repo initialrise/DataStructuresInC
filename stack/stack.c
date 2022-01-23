@@ -21,15 +21,16 @@ int isEmpty(struct stack *s){
 		return 0;
 }
 
-void Display(struct stack s)
+void Display(struct stack *s)
 {
-	for(int i=s.top;i>-1;i--)
-		printf("%d ",s.dataitems[i]);
+	for(int i=s->top;i>-1;i--)
+		printf("%d ",s->dataitems[i]);
 }
 
-struct stack CreateEmptyStack(){
-	struct stack s;
-	s.top=-1;
+struct stack * CreateEmptyStack(){
+	struct stack *s;
+	s = (struct stack *)malloc(sizeof(struct stack));
+	s->top=-1;
 	s->dataitems = (int *)malloc(MAXSIZE*sizeof(int));
 	return s;
 }
@@ -49,11 +50,12 @@ void pop(struct stack *s){
 
 int main(){
 	printf("Stack Implementation in C\n");
-	struct stack mystack = CreateEmptyStack();
-	push(&mystack,100);
-	push(&mystack,10);
-	push(&mystack,13);
-	pop(&mystack);
+	struct stack *mystack ;
+	mystack = CreateEmptyStack();
+	push(mystack,100);
+	push(mystack,10);
+	push(mystack,13);
+	pop(mystack);
 	Display(mystack);
 	return 0;
 }
