@@ -15,7 +15,7 @@ int isFull(struct Queue *q){
 }
 
 int isEmpty(struct Queue *q){
-	if(q->front==q->back==-1)
+	if(q->front==q->back)
 		return 1;
 	else
 		return 0;
@@ -59,6 +59,9 @@ int main(){
 	Enqueue(&myqueue,33);
 	Display(myqueue);
 	printf("\n");
+	Dequeue(&myqueue);
+	Dequeue(&myqueue);
+	Dequeue(&myqueue);
 	Dequeue(&myqueue);
 	Display(myqueue);
 	
